@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="axios, the Fish">
-    <meta name="description" content="最近在学习axios，以这篇文章作为一个整理…一.基础语法 1.get请求 axios.get([URL],[OPTIONS]) 例如
- axios.get(&#39;http://www.liulongbin.top:3005/api/getpr">
+    <meta name="keywords" content="ubuntu16.04下codeblocks的安装与调试, the Fish">
+    <meta name="description" content="Ubuntu16.04 codeblocks的安装与调试因为突然得到消息要去西安打ICPC决赛，队内大佬资格用完，新队伍对ubuntu下cb的调试都不熟悉，所以只能开始复习codeblock的调试。比赛前自己在类比赛环境中试着使用…
+安装 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>axios | the Fish</title>
+    <title>ubuntu16.04下codeblocks的安装与调试 | the Fish</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,13 +304,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        axios
+                        ubuntu16.04下codeblocks的安装与调试
                     </div>
                 </div>
             </div>
@@ -333,16 +333,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/axios/">
-                                <span class="chip bg-color">axios</span>
+                            <a href="/tags/ubuntu/">
+                                <span class="chip bg-color">ubuntu</span>
                             </a>
                         
-                            <a href="/tags/vue/">
-                                <span class="chip bg-color">vue</span>
+                            <a href="/tags/ACM/">
+                                <span class="chip bg-color">ACM</span>
                             </a>
                         
-                            <a href="/tags/ajax/">
-                                <span class="chip bg-color">ajax</span>
+                            <a href="/tags/codeblocks/">
+                                <span class="chip bg-color">codeblocks</span>
                             </a>
                         
                     </div>
@@ -353,8 +353,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/javascipt/" class="post-category">
-                                javascipt
+                            <a href="/categories/ACM/" class="post-category">
+                                ACM
                             </a>
                         
                     </div>
@@ -388,88 +388,36 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近在学习axios，以这篇文章作为一个整理…<br>一.基础语法<br> 1.get请求<br> axios.get([URL],[OPTIONS])<br> 例如</p>
-<pre><code> axios.get('http://www.liulongbin.top:3005/api/getprodlist',{
-     params :{
-         name:'zhufeng',
-         age:'9'
-     }
- }).then({
-     let {data}=result;
-     return ....;//可返回一个请求,然后继续then...后面的result即为return返回的对象
- }).then({
-     let {data}=result;
-     //前面都成功才可执行，此时result是前一步成功后的结果
-     return ....;
- });</code></pre><p> 2.post请求</p>
-<pre><code>  axios.post('http://www.liulongbin.top:3005/api/getprodlist',{
-    name:'zhufeng',
-    age:'9'
- });</code></pre><p> 3.基于GET或者POST方法发送请求，返回的结果都是PROMISE实例。</p>
-<pre><code> let promise =axios.get('[URL]'，{
-     params:{
-         name:''
-     }
- });
- promise.then(res =&gt; {
-    //获取的结果是个对象
-    /*
-    data：从服务器获取的响应主体内容
-    headers 响应的头信息
-    request AJAX实例
-    status 状态码
-    config 基于axios发送请求的时候做的配置项
-    */
- }).catch(msg =&gt; {
-     //msg请求失败的原因
- });</code></pre><p>4.</p>
-<pre><code>axios({
-  method: 'post',
-  url: '/user/12345',
-  data: {
-    firstName: 'Fred',
-    lastName: 'Flintstone'
-  }
-})
-    .then(function(res) {
-    console.log(res)
-    });</code></pre><p>二.<br>1.并发请求</p>
-<pre><code>let sendAry =[
-axios.get(...),
-axios.get(...),
-axios.post(...),
-];//在sendAry中存放3个ajax请求的promise实例
-//3个请求都完成，再做一些事情
-方法一：
-axios.all(sendAry).then(result =&gt; {
-//此时result是一个数组，分别存储每一个请求的结果
-});
-方法二：
-axios.all(sendAry).then(axios.spread( (A,B,C) =&gt; {
-    ...//ABC分别代表3次请求的结果
-}));
-```三.常用配置
-1.初始化一些常用的配置项
-//URL
-axios.defaults.baseURL ='';
-使用：
-axios.get('/xxx').then(...);  //此时为baseURL/xxx
-
-//状态码增改 200-399都为成功
-axios.defaults.validateStatus=function validateStatus(status){
-    return /^(2|3)\d{2}$/.test(status);
-  }；
-
-//请求时间
-axios.defaults.timeout=300；
-
-//自定义请求头
-axios.defaults.headers={
-     name:'....'
-};
-
-//设置post请求中发送内容的格式
-axios.defaults.headers['Content-Type']='application/x-www-form-urlencoded';</code></pre><script>
+                <h1 id="Ubuntu16-04-codeblocks的安装与调试"><a href="#Ubuntu16-04-codeblocks的安装与调试" class="headerlink" title="Ubuntu16.04 codeblocks的安装与调试"></a>Ubuntu16.04 codeblocks的安装与调试</h1><p>因为突然得到消息要去西安打ICPC决赛，队内大佬资格用完，新队伍对ubuntu下cb的调试都不熟悉，所以只能开始复习codeblock的调试。比赛前自己在类比赛环境中试着使用…</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>  其实这部分网上众多博客都已经说的很明白了，我重新整理一下</p>
+<ul>
+<li><p>1.打开终端，添加软件源，并更新apt目录。</p>
+<pre><code>sudo add-apt-repository ppa:damien-moore/codeblocks-stable
+sudo apt-get update</code></pre></li>
+<li><p>2.安装</p>
+<pre><code>sudo apt-get install codeblocks</code></pre></li>
+<li><p>3.插件安装</p>
+<pre><code>sudo apt-get install codeblocks-contrib</code></pre><p>到这一步如果没有报错就算安装成功了。在搜索框里输codeblocks就可以找到软件了。</p>
+</li>
+</ul>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>调试其实ub和win10差不多，用win10的同学可以自己比较一下。</p>
+<h3 id="调试过程"><a href="#调试过程" class="headerlink" title="调试过程"></a>调试过程</h3><ul>
+<li><p>1.点击最上方选项栏中的Debug，然后选Step Into(Shift+F7)开始调试，调试的时候注意添加断点。点击红叉边上的窗口图形按钮可以看到watches按钮，点击后，可以弹出监视窗口。以上都是调试必备的。</p>
+</li>
+<li><p>2.关闭调试时，请点击小红叉(Stop Debugger)，不要直接关闭终端窗口，不然会死机</p>
+</li>
+<li><p>3.一些常用快捷键<br>Shift+F7 开始调试 / 进入函数<br>Ctrl+F7  退出函数，回到原先的语句<br>F7 执行下一行语句<br>F4 跳至下一个断点处<br>F5/点击代码行数的右边空白 添加或取消断点</p>
+</li>
+<li><p>4.有图片的参考：<br>由于博客是markdown格式，加图片有点麻烦。<br>毫无C语言编译器基础或者想看图片的宝贝可以看这个：<br><a href="https://blog.csdn.net/codeblf2/article/details/78183196" target="_blank" rel="noopener">https://blog.csdn.net/codeblf2/article/details/78183196</a><br>很详细！</p>
+</li>
+</ul>
+<h3 id="更改终端"><a href="#更改终端" class="headerlink" title="更改终端"></a>更改终端</h3><p>我们知道cb的默认终端xtrem是不能复制粘贴的，那么就要更改终端了。<br>也就是把ubuntu下的gnome-terminal用作调试终端</p>
+<p>具体操作：<br>Setting==&gt;Environment…==&gt;General Setting==&gt;Terminal to lanuch console programs 把这一栏中的“xterm -T $TITLE -e”用“gnome-terminal -t $TITLE -x”替换掉，注意空格。这样就好了。</p>
+<pre><code>原终端xterm
+xterm -T $TITLE -e
+更改后的终端gnome-terminal
+gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中间滚轮可以直接粘贴，真的是有够好用的呢！</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -512,7 +460,7 @@ axios.defaults.headers['Content-Type']='application/x-www-form-urlencoded';</cod
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="czydijkstra.github.io/2019/12/03/axios/">czydijkstra.github.io/2019/12/03/axios/</a>
+                    <a href="czydijkstra.github.io/2019/12/03/ubuntu-xia-codeblock-an-zhuang-yu-diao-shi/">czydijkstra.github.io/2019/12/03/ubuntu-xia-codeblock-an-zhuang-yu-diao-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -550,16 +498,16 @@ axios.defaults.headers['Content-Type']='application/x-www-form-urlencoded';</cod
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/axios/">
-                                    <span class="chip bg-color">axios</span>
+                                <a href="/tags/ubuntu/">
+                                    <span class="chip bg-color">ubuntu</span>
                                 </a>
                             
-                                <a href="/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
+                                <a href="/tags/ACM/">
+                                    <span class="chip bg-color">ACM</span>
                                 </a>
                             
-                                <a href="/tags/ajax/">
-                                    <span class="chip bg-color">ajax</span>
+                                <a href="/tags/codeblocks/">
+                                    <span class="chip bg-color">codeblocks</span>
                                 </a>
                             
                         </div>
@@ -730,7 +678,7 @@ axios.defaults.headers['Content-Type']='application/x-www-form-urlencoded';</cod
         repo: 'CzyDijkstra.github.io',
         owner: 'CzyDijkstra',
         admin: "CzyDijkstra",
-        id: '2019-12-03T10-50-49',
+        id: '2019-12-03T17-58-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -751,9 +699,10 @@ axios.defaults.headers['Content-Type']='application/x-www-form-urlencoded';</cod
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/12/03/ubuntu-xia-codeblock-an-zhuang-yu-diao-shi/">
                     <div class="card-image">
@@ -771,9 +720,9 @@ axios.defaults.headers['Content-Type']='application/x-www-form-urlencoded';</cod
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -786,6 +735,7 @@ axios.defaults.headers['Content-Type']='application/x-www-form-urlencoded';</cod
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -812,36 +762,52 @@ axios.defaults.headers['Content-Type']='application/x-www-form-urlencoded';</cod
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/01/hello-world/">
+                <a href="/2019/12/03/axios/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="the fish">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="axios">
                         
-                        <span class="card-title">the fish</span>
+                        <span class="card-title">axios</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to the fish!
-Firstprintf("hello")
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
+                            最近在学习axios，以这篇文章作为一个整理。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-03
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Zhuoyu Chen
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/javascipt/" class="post-category">
+                                    javascipt
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/axios/">
+                        <span class="chip bg-color">axios</span>
+                    </a>
+                    
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                    <a href="/tags/ajax/">
+                        <span class="chip bg-color">ajax</span>
+                    </a>
+                    
                 </div>
                 
             </div>
