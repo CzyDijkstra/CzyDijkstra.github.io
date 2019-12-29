@@ -4,9 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ubuntu16.04下codeblocks的安装与调试, the Fish">
-    <meta name="description" content="Ubuntu16.04 codeblocks的安装与调试因为突然得到消息要去西安打ICPC决赛，队内大佬资格用完，新队伍对ubuntu下cb的调试都不熟悉，所以只能开始复习codeblock的调试。比赛前自己在类比赛环境中试着使用…
-安装 ">
+    <meta name="keywords" content="vue.js的基础原理, the Fish">
+    <meta name="description" content="
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ubuntu16.04下codeblocks的安装与调试 | the Fish</title>
+    <title>vue.js的基础原理 | the Fish</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,7 +312,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        ubuntu16.04下codeblocks的安装与调试
+                        vue.js的基础原理
                     </div>
                 </div>
             </div>
@@ -321,43 +323,117 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/ubuntu/">
-                                <span class="chip bg-color">ubuntu</span>
-                            </a>
-                        
-                            <a href="/tags/ACM/">
-                                <span class="chip bg-color">ACM</span>
-                            </a>
-                        
-                            <a href="/tags/codeblocks/">
-                                <span class="chip bg-color">codeblocks</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/ACM/" class="post-category">
-                                ACM
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -366,7 +442,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-03
+                    2019-12-08
                 </div>
                 
 
@@ -388,36 +464,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Ubuntu16-04-codeblocks的安装与调试"><a href="#Ubuntu16-04-codeblocks的安装与调试" class="headerlink" title="Ubuntu16.04 codeblocks的安装与调试"></a>Ubuntu16.04 codeblocks的安装与调试</h1><p>因为突然得到消息要去西安打ICPC决赛，队内大佬资格用完，新队伍对ubuntu下cb的调试都不熟悉，所以只能开始复习codeblock的调试。比赛前自己在类比赛环境中试着使用…</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>  其实这部分网上众多博客都已经说的很明白了，我重新整理一下</p>
-<ul>
-<li><p>1.打开终端，添加软件源，并更新apt目录。</p>
-<pre><code>sudo add-apt-repository ppa:damien-moore/codeblocks-stable
-sudo apt-get update</code></pre></li>
-<li><p>2.安装</p>
-<pre><code>sudo apt-get install codeblocks</code></pre></li>
-<li><p>3.插件安装</p>
-<pre><code>sudo apt-get install codeblocks-contrib</code></pre><p>到这一步如果没有报错就算安装成功了。在搜索框里输codeblocks就可以找到软件了。</p>
-</li>
-</ul>
-<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>调试其实ub和win10差不多，用win10的同学可以自己比较一下。</p>
-<h3 id="调试过程"><a href="#调试过程" class="headerlink" title="调试过程"></a>调试过程</h3><ul>
-<li><p>1.点击最上方选项栏中的Debug，然后选Step Into(Shift+F7)开始调试，调试的时候注意添加断点。点击红叉边上的窗口图形按钮可以看到watches按钮，点击后，可以弹出监视窗口。以上都是调试必备的。</p>
-</li>
-<li><p>2.关闭调试时，请点击小红叉(Stop Debugger)，不要直接关闭终端窗口，不然会死机</p>
-</li>
-<li><p>3.一些常用快捷键<br>Shift+F7 开始调试 / 进入函数<br>Ctrl+F7  退出函数，回到原先的语句<br>F7 执行下一行语句<br>F4 跳至下一个断点处<br>F5/点击代码行数的右边空白 添加或取消断点</p>
-</li>
-<li><p>4.有图片的参考：<br>由于博客是markdown格式，加图片有点麻烦。<br>毫无C语言编译器基础或者想看图片的宝贝可以看这个：<br><a href="https://blog.csdn.net/codeblf2/article/details/78183196" target="_blank" rel="noopener">https://blog.csdn.net/codeblf2/article/details/78183196</a><br>很详细！</p>
-</li>
-</ul>
-<h3 id="更改终端"><a href="#更改终端" class="headerlink" title="更改终端"></a>更改终端</h3><p>我们知道cb的默认终端xtrem是不能复制粘贴的，那么就要更改终端了。<br>也就是把ubuntu下的gnome-terminal用作调试终端</p>
-<p>具体操作：<br>Setting==&gt;Environment…==&gt;General Setting==&gt;Terminal to lanuch console programs 把这一栏中的“xterm -T $TITLE -e”用“gnome-terminal -t $TITLE -x”替换掉，注意空格。这样就好了。</p>
-<pre><code>原终端xterm
-xterm -T $TITLE -e
-更改后的终端gnome-terminal
-gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中间滚轮可以直接粘贴，真的是有够好用的呢！</p>
-<script>
+                <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -460,7 +507,7 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="czydijkstra.github.io/2019/12/03/ubuntu-xia-codeblock-an-zhuang-yu-diao-shi/">czydijkstra.github.io/2019/12/03/ubuntu-xia-codeblock-an-zhuang-yu-diao-shi/</a>
+                    <a href="czydijkstra.github.io/2019/12/08/vue-js-de-ji-chu-yuan-li/">czydijkstra.github.io/2019/12/08/vue-js-de-ji-chu-yuan-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -497,19 +544,7 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/ubuntu/">
-                                    <span class="chip bg-color">ubuntu</span>
-                                </a>
-                            
-                                <a href="/tags/ACM/">
-                                    <span class="chip bg-color">ACM</span>
-                                </a>
-                            
-                                <a href="/tags/codeblocks/">
-                                    <span class="chip bg-color">codeblocks</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -678,7 +713,7 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
         repo: 'CzyDijkstra.github.io',
         owner: 'CzyDijkstra',
         admin: "CzyDijkstra",
-        id: '2019-12-03T17-58-15',
+        id: '2019-12-08T14-46-51',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -703,27 +738,29 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/12/08/vue-js-de-ji-chu-yuan-li/">
+                <a href="/2019/12/29/sort-of-java/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="vue.js的基础原理">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="sort of java">
                         
-                        <span class="card-title">vue.js的基础原理</span>
+                        <span class="card-title">sort of java</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            基础的排序算法(整理)感谢网络上各位博主的资料，这里仅作自己的整理。若有侵权，请联系我删除。
+一、冒泡排序   /*
+    * 冒泡排序
+    * 时间复杂度 O(n^2)
+    */
+    public static void s
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-29
                         </span>
                         <span class="publish-author">
                             
@@ -743,19 +780,19 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/03/axios/">
+                <a href="/2019/12/03/ubuntu-xia-codeblock-an-zhuang-yu-diao-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="axios">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ubuntu16.04下codeblocks的安装与调试">
                         
-                        <span class="card-title">axios</span>
+                        <span class="card-title">ubuntu16.04下codeblocks的安装与调试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最近在学习axios，以这篇文章作为一个整理。
+                            西安决赛前,复习一下codeblocks的安装与调试
                         
                     </div>
                     <div class="publish-info">
@@ -766,8 +803,8 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/javascipt/" class="post-category">
-                                    javascipt
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
                                 </a>
                             
                             
@@ -777,16 +814,16 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/axios/">
-                        <span class="chip bg-color">axios</span>
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
                     </a>
                     
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
+                    <a href="/tags/ACM/">
+                        <span class="chip bg-color">ACM</span>
                     </a>
                     
-                    <a href="/tags/ajax/">
-                        <span class="chip bg-color">ajax</span>
+                    <a href="/tags/codeblocks/">
+                        <span class="chip bg-color">codeblocks</span>
                     </a>
                     
                 </div>
@@ -824,6 +861,100 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 

@@ -4,9 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ubuntu16.04下codeblocks的安装与调试, the Fish">
-    <meta name="description" content="Ubuntu16.04 codeblocks的安装与调试因为突然得到消息要去西安打ICPC决赛，队内大佬资格用完，新队伍对ubuntu下cb的调试都不熟悉，所以只能开始复习codeblock的调试。比赛前自己在类比赛环境中试着使用…
-安装 ">
+    <meta name="keywords" content="sort of java, the Fish">
+    <meta name="description" content="基础的排序算法(整理)感谢网络上各位博主的资料，这里仅作自己的整理。若有侵权，请联系我删除。
+一、冒泡排序   /*
+    * 冒泡排序
+    * 时间复杂度 O(n^2)
+    */
+    public static void s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ubuntu16.04下codeblocks的安装与调试 | the Fish</title>
+    <title>sort of java | the Fish</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,13 +308,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        ubuntu16.04下codeblocks的安装与调试
+                        sort of java
                     </div>
                 </div>
             </div>
@@ -321,43 +325,117 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/ubuntu/">
-                                <span class="chip bg-color">ubuntu</span>
-                            </a>
-                        
-                            <a href="/tags/ACM/">
-                                <span class="chip bg-color">ACM</span>
-                            </a>
-                        
-                            <a href="/tags/codeblocks/">
-                                <span class="chip bg-color">codeblocks</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/ACM/" class="post-category">
-                                ACM
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -366,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-03
+                    2019-12-29
                 </div>
                 
 
@@ -388,35 +466,288 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Ubuntu16-04-codeblocks的安装与调试"><a href="#Ubuntu16-04-codeblocks的安装与调试" class="headerlink" title="Ubuntu16.04 codeblocks的安装与调试"></a>Ubuntu16.04 codeblocks的安装与调试</h1><p>因为突然得到消息要去西安打ICPC决赛，队内大佬资格用完，新队伍对ubuntu下cb的调试都不熟悉，所以只能开始复习codeblock的调试。比赛前自己在类比赛环境中试着使用…</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>  其实这部分网上众多博客都已经说的很明白了，我重新整理一下</p>
-<ul>
-<li><p>1.打开终端，添加软件源，并更新apt目录。</p>
-<pre><code>sudo add-apt-repository ppa:damien-moore/codeblocks-stable
-sudo apt-get update</code></pre></li>
-<li><p>2.安装</p>
-<pre><code>sudo apt-get install codeblocks</code></pre></li>
-<li><p>3.插件安装</p>
-<pre><code>sudo apt-get install codeblocks-contrib</code></pre><p>到这一步如果没有报错就算安装成功了。在搜索框里输codeblocks就可以找到软件了。</p>
-</li>
-</ul>
-<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>调试其实ub和win10差不多，用win10的同学可以自己比较一下。</p>
-<h3 id="调试过程"><a href="#调试过程" class="headerlink" title="调试过程"></a>调试过程</h3><ul>
-<li><p>1.点击最上方选项栏中的Debug，然后选Step Into(Shift+F7)开始调试，调试的时候注意添加断点。点击红叉边上的窗口图形按钮可以看到watches按钮，点击后，可以弹出监视窗口。以上都是调试必备的。</p>
-</li>
-<li><p>2.关闭调试时，请点击小红叉(Stop Debugger)，不要直接关闭终端窗口，不然会死机</p>
-</li>
-<li><p>3.一些常用快捷键<br>Shift+F7 开始调试 / 进入函数<br>Ctrl+F7  退出函数，回到原先的语句<br>F7 执行下一行语句<br>F4 跳至下一个断点处<br>F5/点击代码行数的右边空白 添加或取消断点</p>
-</li>
-<li><p>4.有图片的参考：<br>由于博客是markdown格式，加图片有点麻烦。<br>毫无C语言编译器基础或者想看图片的宝贝可以看这个：<br><a href="https://blog.csdn.net/codeblf2/article/details/78183196" target="_blank" rel="noopener">https://blog.csdn.net/codeblf2/article/details/78183196</a><br>很详细！</p>
-</li>
-</ul>
-<h3 id="更改终端"><a href="#更改终端" class="headerlink" title="更改终端"></a>更改终端</h3><p>我们知道cb的默认终端xtrem是不能复制粘贴的，那么就要更改终端了。<br>也就是把ubuntu下的gnome-terminal用作调试终端</p>
-<p>具体操作：<br>Setting==&gt;Environment…==&gt;General Setting==&gt;Terminal to lanuch console programs 把这一栏中的“xterm -T $TITLE -e”用“gnome-terminal -t $TITLE -x”替换掉，注意空格。这样就好了。</p>
-<pre><code>原终端xterm
-xterm -T $TITLE -e
-更改后的终端gnome-terminal
-gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中间滚轮可以直接粘贴，真的是有够好用的呢！</p>
+                <h1 id="基础的排序算法-整理"><a href="#基础的排序算法-整理" class="headerlink" title="基础的排序算法(整理)"></a>基础的排序算法(整理)</h1><h2 id="感谢网络上各位博主的资料，这里仅作自己的整理。若有侵权，请联系我删除。"><a href="#感谢网络上各位博主的资料，这里仅作自己的整理。若有侵权，请联系我删除。" class="headerlink" title="感谢网络上各位博主的资料，这里仅作自己的整理。若有侵权，请联系我删除。"></a>感谢网络上各位博主的资料，这里仅作自己的整理。若有侵权，请联系我删除。</h2><p><img src="https://images2018.cnblogs.com/blog/849589/201804/849589-20180402133438219-1946132192.png" alt="img"></p>
+<h2 id="一、冒泡排序"><a href="#一、冒泡排序" class="headerlink" title="一、冒泡排序"></a>一、冒泡排序</h2><pre><code class="java">   /*
+    * 冒泡排序
+    * 时间复杂度 O(n^2)
+    */
+    public static void sort_mp(int[] a)
+    {
+        int x;
+        boolean flag;
+        for(int i=0;i&lt;a.length-1;i++)
+        {
+            flag=false;
+            for(int j=a.length-1;j&gt;i;j--)
+            {
+                if (a[j]&lt;a[j-1])
+                {
+                    x=a[j];a[j]=a[j-1];a[j-1]=x;
+                    flag=true;
+                }
+            }
+            if(!flag)break;
+        }
+    }
+</code></pre>
+<h2 id="二、选择排序"><a href="#二、选择排序" class="headerlink" title="二、选择排序"></a>二、选择排序</h2><pre><code class="java">
+    /*
+     * 选择排序
+     * 时间复杂度 O(n^2)
+     */
+    public static void sort_choose(int[] a)
+    {
+        int min=a[0];
+        int s=0;
+        for (int i=0;i&lt;a.length-1;i++)
+        {
+            s=i;
+            min=a[i];
+            for(int j=i;j&lt;a.length;j++)
+            {
+                if(min&gt;a[j])
+                {min=a[j];s=j;}
+            }
+            int x=a[i];a[i]=a[s];a[s]=x;
+        }
+    }</code></pre>
+<h2 id="三、插入排序"><a href="#三、插入排序" class="headerlink" title="三、插入排序"></a>三、插入排序</h2><pre><code class="java">/*
+     * 插入排序
+     * 时间复杂度 O(n^2)
+     * 在要排序的一组数中，假定前n-1个数已经排好序，现在将第n个数插到前面的有序数列中，使得这n个数也是排好顺序的。如此反复循环，直到全部排好顺序。
+     */
+    public static void  insert_sort(int a[]){
+        int temp;
+        for(int i=0;i&lt;a.length-1;i++){
+            for(int j=i+1;j&gt;0;j--){
+                if(a[j] &lt; a[j-1]){
+                    temp = a[j-1];
+                    a[j-1] = a[j];
+                    a[j] = temp;
+                }else{         //不需要交换
+                    break;
+                }
+            }
+        }
+    }</code></pre>
+<h2 id="四、希尔排序"><a href="#四、希尔排序" class="headerlink" title="四、希尔排序"></a>四、希尔排序</h2><pre><code class="java">
+    /*
+     * 希尔排序
+     * 时间复杂度 O(n^1.5)
+     * 如果序列基本有序，插入排序会更快
+     * 在要排序的一组数中，根据某一增量分为若干子序列，并对子序列分别进行插入排序。
+然后逐渐将增量减小,并重复上述过程。直至增量为1,此时数据序列基本有序,最后进行插入排序。
+     */
+    public static void shell_sort(int array[],int lenth){
+
+        int temp = 0;
+        int incre = lenth;
+
+        while(true){
+            incre = incre/2;
+
+            for(int k = 0;k&lt;incre;k++){    //根据增量分为若干子序列
+
+                for(int i=k+incre;i&lt;lenth;i+=incre){
+
+                    for(int j=i;j&gt;k;j-=incre){
+                        if(array[j]&lt;array[j-incre]){
+                            temp = array[j-incre];
+                            array[j-incre] = array[j];
+                            array[j] = temp;
+                        }else{
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if(incre == 1){
+                break;
+            }
+        }
+    }</code></pre>
+<h2 id="五、归并排序"><a href="#五、归并排序" class="headerlink" title="五、归并排序"></a>五、归并排序</h2><pre><code class="java">
+    /*
+     * 归并排序
+     * 时间复杂度 O(N*logN)
+     * 首先考虑下如何将2个有序数列合并。这个非常简单，只要从比较2个数列的第一个数，谁小就先取   
+     * 谁，取了后就在对应数列中删除这个数。
+     * 然后再进行比较，如果有数列为空，那直接将另一个数列的数据依次取出即可。
+     */
+    public static void merge_sort(int a[],int first,int last,int temp[]){
+        if (first&lt;last)
+        {
+            int mid=(first+last)/2;
+            merge_sort(a,first,mid,temp);
+            merge_sort(a,mid+1,last,temp);
+            mergeArray(a,first,mid,last,temp);
+        }
+    }
+    //合并 ：将两个序列a[first-middle],a[middle+1-end]合并
+    public static void mergeArray(int[] a,int first,int mid,int last,int[] temp){
+        int i=first;
+        int j=mid+1;
+        int count=0;
+        while (i&lt;=mid&amp;&amp;j&lt;=last)
+        {
+            if(a[i]&lt;=a[j])
+            {
+                temp[count]=a[i];
+                i++;
+                count++;
+            }
+            else
+            {
+                temp[count]=a[j];
+                j++;
+                count++;
+            }
+        }
+        while(i&lt;=mid)
+        {
+            temp[count]=a[i];
+            i++;
+            count++;
+        }
+        while(j&lt;=last)
+        {
+            temp[count]=a[j];
+            j++;
+            count++;
+        }
+        for(int k=0;k&lt;=last-first;k++)
+        {
+            a[first+k]=temp[k];
+        }
+    }</code></pre>
+<h2 id="六、快速排序"><a href="#六、快速排序" class="headerlink" title="六、快速排序"></a>六、快速排序</h2><pre><code class="java">    /*
+     * 快速排序
+     * 时间复杂度 O(N^logN)
+     */
+    public static void quick_sort(int[] a,int l,int r)
+    {
+        if(l&gt;r)return;
+        int key=a[l],i=l,j=r;
+        while (i&lt;j)
+        {
+            while (i&lt;j &amp;&amp; key &lt;= a[j])
+            {
+                j--;
+            }
+            if(i&lt;j)
+            {
+                a[i]=a[j];
+                i++;
+            }
+            while (i&lt;j &amp;&amp; key &lt;= a[j])
+            {
+                i++;
+            }
+            if(i&lt;j)
+            {
+                a[j]=a[i];
+                j--;
+            }
+        }
+        quick_sort(a,l,i-1);
+        quick_sort(a,i+1,r);
+    }</code></pre>
+<h2 id="七、基数排序"><a href="#七、基数排序" class="headerlink" title="七、基数排序"></a>七、基数排序</h2><pre><code class="java">/*
+     * 基数排序
+     * 时间复杂度 O(n*k)
+     * 每n轮排序取第n位的数字k，放入f[k]中，然后再取出，循环往复
+     */
+    public static void RadixSort(int A[],int temp[],int n,int k,int r,int cnt[]){
+
+        //A:原数组
+        //temp:临时数组
+        //n:序列的数字个数
+        //k:最大的位数2
+        //r:基数10
+        //cnt:存储bin[i]的个数
+
+        for(int i=0 , rtok=1; i&lt;k ; i++ ,rtok = rtok*r){
+
+            //初始化
+            for(int j=0;j&lt;r;j++){
+                cnt[j] = 0;
+            }
+            //计算每个箱子的数字个数
+            for(int j=0;j&lt;n;j++){
+                cnt[(A[j]/rtok)%r]++;
+            }
+            //cnt[j]的个数修改为前j个箱子一共有几个数字
+            for(int j=1;j&lt;r;j++){
+                cnt[j] = cnt[j-1] + cnt[j];
+            }
+            for(int j = n-1;j&gt;=0;j--){      //重点理解
+                cnt[(A[j]/rtok)%r]--;
+                temp[cnt[(A[j]/rtok)%r]] = A[j];
+            }
+            for(int j=0;j&lt;n;j++){
+                A[j] = temp[j];
+            }
+        }
+    }</code></pre>
+<h2 id="八、堆排序"><a href="#八、堆排序" class="headerlink" title="八、堆排序"></a>八、堆排序</h2><pre><code class="java">    /*
+     * 堆排序
+     * 时间复杂度 O(N^logN)
+     * 堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。
+     * 堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：
+     * 即子结点的键值或索引总是小于（或者大于）它的父节点。
+     *
+     * 算法步骤：
+     * 将初始待排序关键字序列(R1,R2….Rn)构建成大顶堆，此堆为初始的无序区；
+     * 将堆顶元素R[1]与最后一个元素R[n]交换，此时得到新的无序区(R1,R2,……Rn-1)和新的有序区(Rn),且满足R[1,2…n-1]&lt;=R[n]；
+     * 由于交换后新的堆顶R[1]可能违反堆的性质，因此需要对当前无序区(R1,R2,……Rn-1)调整为新堆，
+     * 然后再次将R[1]与无序区最后一个元素交换，得到新的无序区(R1,R2….Rn-2)和新的有序区(Rn-1,Rn)。
+     * 不断重复此过程直到有序区的元素个数为n-1，则整个排序过程完成。
+
+     */
+
+    //主函数
+    public static void MinHeap_Sort(int a[],int n){
+        int tmp = 0;
+        MakeMinHeap(a,n);
+        //执行把最后一个堆内元素与堆顶交换的过程
+        for(int i=n-1;i&gt;=0;i--)
+        {
+            tmp = a[0];
+            a[0] = a[i];
+            a[i] =tmp;
+            MinHeapFixdown(a,0,i);
+        }
+    }
+   //构建最小堆
+    public static void MakeMinHeap(int a[], int n){
+        for(int i=(n-1)/2;i&gt;=0;i--)
+        {
+            MinHeapFixdown(a,i,n);
+        }
+    }
+    //从i节点开始调整,n为节点总数 从0开始计算 i节点的子节点为 2*i+1, 2*i+2
+    public static void MinHeapFixdown(int a[],int i,int n){
+        int j=2*i+1;//子节点
+        int tmp=0;
+        while(j&lt;n)
+        {
+            if( a[j]&gt;=a[j+1] &amp;&amp; j+1&lt;n )
+                j++;//在左右子节点中找一个更小的
+
+            if(a[j]&lt;a[i]) {
+                tmp = a[i];
+                a[i] = a[j];
+                a[j] = tmp;
+
+                //更新子节点的值
+                i=j;
+                j=i*2+1;
+            }
+            else break;
+        }
+    }
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -460,7 +791,7 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="czydijkstra.github.io/2019/12/03/ubuntu-xia-codeblock-an-zhuang-yu-diao-shi/">czydijkstra.github.io/2019/12/03/ubuntu-xia-codeblock-an-zhuang-yu-diao-shi/</a>
+                    <a href="czydijkstra.github.io/2019/12/29/sort-of-java/">czydijkstra.github.io/2019/12/29/sort-of-java/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -497,19 +828,7 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/ubuntu/">
-                                    <span class="chip bg-color">ubuntu</span>
-                                </a>
-                            
-                                <a href="/tags/ACM/">
-                                    <span class="chip bg-color">ACM</span>
-                                </a>
-                            
-                                <a href="/tags/codeblocks/">
-                                    <span class="chip bg-color">codeblocks</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -678,7 +997,7 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
         repo: 'CzyDijkstra.github.io',
         owner: 'CzyDijkstra',
         admin: "CzyDijkstra",
-        id: '2019-12-03T17-58-15',
+        id: '2019-12-29T23-24-25',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -699,9 +1018,53 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/12/29/sort-of-java/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="sort of java">
+                        
+                        <span class="card-title">sort of java</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            基础的排序算法(整理)感谢网络上各位博主的资料，这里仅作自己的整理。若有侵权，请联系我删除。
+一、冒泡排序   /*
+    * 冒泡排序
+    * 时间复杂度 O(n^2)
+    */
+    public static void s
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Zhuoyu Chen
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/12/08/vue-js-de-ji-chu-yuan-li/">
                     <div class="card-image">
@@ -722,9 +1085,9 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -732,63 +1095,6 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
                             
                         </span>
                     </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/12/03/axios/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="axios">
-                        
-                        <span class="card-title">axios</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            最近在学习axios，以这篇文章作为一个整理。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/javascipt/" class="post-category">
-                                    javascipt
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/axios/">
-                        <span class="chip bg-color">axios</span>
-                    </a>
-                    
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                    <a href="/tags/ajax/">
-                        <span class="chip bg-color">ajax</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -824,6 +1130,100 @@ gnome-terminal -t $TITLE -x</code></pre><p>特别提醒一下，点击鼠标中�
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
