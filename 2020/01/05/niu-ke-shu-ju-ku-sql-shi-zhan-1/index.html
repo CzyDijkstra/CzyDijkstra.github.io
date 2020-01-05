@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="leetcode-cn数据库免费题目整理, the Fish">
-    <meta name="description" content="leetcode-cn 免费sql题 题解每天刷5题，刷了一段时间，把免费的做完了，emm…转战牛客了
-175.左连接查询select Person.FirstName,Person.LastName,Address.City,Addres">
+    <meta name="keywords" content="牛客数据库SQL实战(一), the Fish">
+    <meta name="description" content="牛客 数据库SQL实战1.查找最晚入职员工的所有信息select * from employees where hire_date =
+( select max(hire_date) from employees )
+2.查找入职员工时间排">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>leetcode-cn数据库免费题目整理 | the Fish</title>
+    <title>牛客数据库SQL实战(一) | the Fish</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,13 +305,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        leetcode-cn数据库免费题目整理
+                        牛客数据库SQL实战(一)
                     </div>
                 </div>
             </div>
@@ -349,8 +350,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/sql/" class="post-category">
-                                sql
+                            <a href="/categories/%E4%B9%A0%E9%A2%98/" class="post-category">
+                                习题
                             </a>
                         
                     </div>
@@ -362,7 +363,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-01
+                    2020-01-05
                 </div>
                 
 
@@ -384,200 +385,102 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="leetcode-cn-免费sql题-题解"><a href="#leetcode-cn-免费sql题-题解" class="headerlink" title="leetcode-cn 免费sql题 题解"></a>leetcode-cn 免费sql题 题解</h1><p>每天刷5题，刷了一段时间，把免费的做完了，emm…转战牛客了</p>
-<h2 id="175-左连接查询"><a href="#175-左连接查询" class="headerlink" title="175.左连接查询"></a>175.左连接查询</h2><pre><code>select Person.FirstName,Person.LastName,Address.City,Address.State 
-from Person 
-left join Address on 
-Person.PersonId=Address.PersonId</code></pre><h2 id="176-判断非空和第二大的一个值"><a href="#176-判断非空和第二大的一个值" class="headerlink" title="176.判断非空和第二大的一个值"></a>176.判断非空和第二大的一个值</h2><pre><code class="sql">select(
-
-select distinct Salary  
-
-from Employee 
-
-order by Salary desc
-
-limit 1,1
-
-)as SecondHighestSalary </code></pre>
-<h2 id="177-第n高的薪水"><a href="#177-第n高的薪水" class="headerlink" title="177.第n高的薪水"></a>177.第n高的薪水</h2><pre><code class="sql">CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
-BEGIN
-    SET N = N - 1;
-    RETURN (
-     SELECT DISTINCT salary FROM employee ORDER BY salary DESC LIMIT N, 1
-    );
-END</code></pre>
-<h2 id="178-分数排名"><a href="#178-分数排名" class="headerlink" title="178.分数排名"></a>178.分数排名</h2><pre><code class="sql">select Score,
+                <h1 id="牛客-数据库SQL实战"><a href="#牛客-数据库SQL实战" class="headerlink" title="牛客 数据库SQL实战"></a>牛客 数据库SQL实战</h1><h2 id="1-查找最晚入职员工的所有信息"><a href="#1-查找最晚入职员工的所有信息" class="headerlink" title="1.查找最晚入职员工的所有信息"></a>1.查找最晚入职员工的所有信息</h2><pre><code class="sql">select * from employees where hire_date =
+( select max(hire_date) from employees )</code></pre>
+<h2 id="2-查找入职员工时间排名倒数第三的员工所有信息"><a href="#2-查找入职员工时间排名倒数第三的员工所有信息" class="headerlink" title="2.查找入职员工时间排名倒数第三的员工所有信息"></a>2.查找入职员工时间排名倒数第三的员工所有信息</h2><pre><code class="sql">select * from employees where hire_date =
 (
-    select count(distinct Score)
-    from Scores where s.Score&lt;=Score
-)as Rank
-from Scores s order by Score desc
+    select distinct hire_date from employees 
+    order by hire_date desc 
+    limit 2,1
+)
 </code></pre>
-<h2 id="180-连续出现的数字"><a href="#180-连续出现的数字" class="headerlink" title="180.连续出现的数字"></a>180.连续出现的数字</h2><pre><code class="sql">-- 编写一个 SQL 查询，查找所有至少连续出现三次的数字。
-#方法一:
-select distinct Num as ConsecutiveNums
+<p>注意点：<br>a.order by要在limit前面 ，limit语法 limit n,m 查第n+1条到第n+m条</p>
+<h2 id="3-查找各个部门当前领导当前薪水详情以及其对应部门编号dept-no"><a href="#3-查找各个部门当前领导当前薪水详情以及其对应部门编号dept-no" class="headerlink" title="3.查找各个部门当前领导当前薪水详情以及其对应部门编号dept_no"></a>3.查找各个部门当前领导当前薪水详情以及其对应部门编号dept_no</h2><pre><code class="sql">select s.*,d.dept_no
+from  salaries s join dept_manager d on
+s.emp_no = d.emp_no 
+where s.to_date = '9999-01-01' and d.to_date = '9999-01-01'</code></pre>
+<h2 id="4-查找所有已经分配部门的员工的last-name和first-name"><a href="#4-查找所有已经分配部门的员工的last-name和first-name" class="headerlink" title="4.查找所有已经分配部门的员工的last_name和first_name"></a>4.查找所有已经分配部门的员工的last_name和first_name</h2><pre><code class="sql">select e.last_name, e.first_name, d.dept_no from
+employees e inner join dept_emp d on e.emp_no = d.emp_no;</code></pre>
+<p>知识点<br>内连接           只连接匹配的行<br>左外连接        包含左边表的全部行（不管右边的表中是否存在与它们匹配的行），以及右边表中全部匹配的行<br>右外连接        包含右边表的全部行（不管左边的表中是否存在与它们匹配的行），以及左边表中全部匹配的行<br>全外连接        包含左、右两个表的全部行，不管另外一边的表中是否存在与它们匹配的行。</p>
+<h2 id="5-查找所有员工的last-name和first-name以及对应部门编号dept-no，也包括展示没有分配具体部门的员工"><a href="#5-查找所有员工的last-name和first-name以及对应部门编号dept-no，也包括展示没有分配具体部门的员工" class="headerlink" title="5.查找所有员工的last_name和first_name以及对应部门编号dept_no，也包括展示没有分配具体部门的员工"></a>5.查找所有员工的last_name和first_name以及对应部门编号dept_no，也包括展示没有分配具体部门的员工</h2><pre><code class="sql">select e.last_name,    e.first_name,    d.dept_no
+from employees e left join dept_emp d on e.emp_no=d.emp_no</code></pre>
+<h2 id="6-查找所有员工入职时候的薪水情况，给出emp-no以及salary，-并按照emp-no进行逆序-desc"><a href="#6-查找所有员工入职时候的薪水情况，给出emp-no以及salary，-并按照emp-no进行逆序-desc" class="headerlink" title="6.查找所有员工入职时候的薪水情况，给出emp_no以及salary， 并按照emp_no进行逆序(desc)"></a>6.查找所有员工入职时候的薪水情况，给出emp_no以及salary， 并按照emp_no进行逆序(desc)</h2><pre><code class="sql">select e.emp_no,s.salary 
+from employees e join salaries s 
+on e.emp_no=s.emp_no where e.hire_date=s.from_date
+order by e.emp_no desc</code></pre>
+<h2 id="7-查找薪水涨幅超过15次的员工号emp-no以及其对应的涨幅次数"><a href="#7-查找薪水涨幅超过15次的员工号emp-no以及其对应的涨幅次数" class="headerlink" title="7.查找薪水涨幅超过15次的员工号emp_no以及其对应的涨幅次数"></a>7.查找薪水涨幅超过15次的员工号emp_no以及其对应的涨幅次数</h2><pre><code class="sql">-- 把薪水涨幅超过15次，看作是在薪水表中有15条+的记录。因为薪水表中记录的是某一时期到另一时期的薪水
+select s1.emp_no,count(s1.emp_no) t 
+from salaries s1  group by s1.emp_no having t &gt;= 15</code></pre>
+<h2 id="8-找出所有员工当前-to-date-’9999-01-01’-具体的薪水salary情况，对于相同的薪水只显示一次-并按照逆序显示"><a href="#8-找出所有员工当前-to-date-’9999-01-01’-具体的薪水salary情况，对于相同的薪水只显示一次-并按照逆序显示" class="headerlink" title="8.找出所有员工当前(to_date=’9999-01-01’)具体的薪水salary情况，对于相同的薪水只显示一次,并按照逆序显示"></a>8.找出所有员工当前(to_date=’9999-01-01’)具体的薪水salary情况，对于相同的薪水只显示一次,并按照逆序显示</h2><pre><code class="sql">select distinct(s.salary) from salaries s
+where to_date='9999-01-01' order by s.salary desc</code></pre>
+<h2 id="9-获取所有部门当前manager的当前薪水情况，给出dept-no-emp-no以及salary，当前表示to-date-’9999-01-01’"><a href="#9-获取所有部门当前manager的当前薪水情况，给出dept-no-emp-no以及salary，当前表示to-date-’9999-01-01’" class="headerlink" title="9.获取所有部门当前manager的当前薪水情况，给出dept_no, emp_no以及salary，当前表示to_date=’9999-01-01’"></a>9.获取所有部门当前manager的当前薪水情况，给出dept_no, emp_no以及salary，当前表示to_date=’9999-01-01’</h2><pre><code class="sql">select d.dept_no, d.emp_no,s.salary
+from dept_manager d join salaries s
+on d.emp_no=s.emp_no and d.to_date=s.to_date 
+where d.to_date='9999-01-01'</code></pre>
+<h2 id="10-获取所有非manager的员工emp-no"><a href="#10-获取所有非manager的员工emp-no" class="headerlink" title="10.获取所有非manager的员工emp_no"></a>10.获取所有非manager的员工emp_no</h2><pre><code class="sql">select distinct(e.emp_no) 
+from employees e left join dept_manager d on e.emp_no = d.emp_no
+where d.emp_no is null</code></pre>
+<h2 id="11-获取所有员工当前的manager，如果当前的manager是自己的话结果不显示，当前表示to-date-’9999-01-01’。"><a href="#11-获取所有员工当前的manager，如果当前的manager是自己的话结果不显示，当前表示to-date-’9999-01-01’。" class="headerlink" title="11.获取所有员工当前的manager，如果当前的manager是自己的话结果不显示，当前表示to_date=’9999-01-01’。"></a>11.获取所有员工当前的manager，如果当前的manager是自己的话结果不显示，当前表示to_date=’9999-01-01’。</h2><pre><code class="sql">select e.emp_no,d.emp_no manager_no 
+from dept_emp e inner join dept_manager d 
+on e.dept_no = d.dept_no and e.to_date = d.to_date
+where e.emp_no&lt;&gt;d.emp_no and e.to_date='9999-01-01'</code></pre>
+<h2 id="12-获取所有部门中当前员工薪水最高的相关信息，给出dept-no-emp-no以及其对应的salary"><a href="#12-获取所有部门中当前员工薪水最高的相关信息，给出dept-no-emp-no以及其对应的salary" class="headerlink" title="12.获取所有部门中当前员工薪水最高的相关信息，给出dept_no, emp_no以及其对应的salary"></a>12.获取所有部门中当前员工薪水最高的相关信息，给出dept_no, emp_no以及其对应的salary</h2><pre><code class="sql">select d.dept_no,d.emp_no,max(s.salary) as salary
+from dept_emp d join salaries s
+on d.emp_no = s.emp_no and d.to_date=s.to_date
+group by d.dept_no</code></pre>
+<h2 id="13-从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。"><a href="#13-从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。" class="headerlink" title="13.从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。"></a>13.从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。</h2><pre><code class="sql">select title,count(title) as t 
+from titles group by title</code></pre>
+<h2 id="14-从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。注意对于重复的emp-no进行忽略"><a href="#14-从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。注意对于重复的emp-no进行忽略" class="headerlink" title="14.从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。注意对于重复的emp_no进行忽略"></a>14.从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。注意对于重复的emp_no进行忽略</h2><pre><code class="sql">select t.title,count(t.title) as t 
+from (select distinct(emp_no),title 
+      from titles
+) t group by t.title </code></pre>
+<h2 id="15-查找employees表所有emp-no为奇数，且last-name不为Mary的员工信息，并按照hire-date逆序排列"><a href="#15-查找employees表所有emp-no为奇数，且last-name不为Mary的员工信息，并按照hire-date逆序排列" class="headerlink" title="15.查找employees表所有emp_no为奇数，且last_name不为Mary的员工信息，并按照hire_date逆序排列"></a>15.查找employees表所有emp_no为奇数，且last_name不为Mary的员工信息，并按照hire_date逆序排列</h2><pre><code class="sql">select 
+e.emp_no,e.birth_date,e.first_name,e.last_name,e.gender,e.hire_date
+from employees e 
+where e.emp_no%2=1 and e.last_name&lt;&gt;'Mary'
+order by hire_date desc</code></pre>
+<h2 id="16-统计出当前各个title类型对应的员工当前（to-date-’9999-01-01’）薪水对应的平均工资。结果给出title以及平均工资avg。"><a href="#16-统计出当前各个title类型对应的员工当前（to-date-’9999-01-01’）薪水对应的平均工资。结果给出title以及平均工资avg。" class="headerlink" title="16.统计出当前各个title类型对应的员工当前（to_date=’9999-01-01’）薪水对应的平均工资。结果给出title以及平均工资avg。"></a>16.统计出当前各个title类型对应的员工当前（to_date=’9999-01-01’）薪水对应的平均工资。结果给出title以及平均工资avg。</h2><pre><code class="sql">select t.title,avg(s.salary) as 'avg'
+from titles t join salaries s 
+on t.emp_no=s.emp_no and t.to_date=s.to_date
+where t.to_date = '9999-01-01'
+group by title</code></pre>
+<h2 id="17-获取当前（to-date-’9999-01-01’）薪水第二多的员工的emp-no以及其对应的薪水salary"><a href="#17-获取当前（to-date-’9999-01-01’）薪水第二多的员工的emp-no以及其对应的薪水salary" class="headerlink" title="17.获取当前（to_date=’9999-01-01’）薪水第二多的员工的emp_no以及其对应的薪水salary"></a>17.获取当前（to_date=’9999-01-01’）薪水第二多的员工的emp_no以及其对应的薪水salary</h2><pre><code class="sql">select s.emp_no,s.salary
+from salaries s where s.to_date='9999-01-01'
+order by salary desc  limit 1,1</code></pre>
+<h2 id="18-查找当前薪水-to-date-’9999-01-01’-排名第二多的员工编号emp-no、薪水salary、last-name以及first-name，-不准使用order-by"><a href="#18-查找当前薪水-to-date-’9999-01-01’-排名第二多的员工编号emp-no、薪水salary、last-name以及first-name，-不准使用order-by" class="headerlink" title="18.查找当前薪水(to_date=’9999-01-01’)排名第二多的员工编号emp_no、薪水salary、last_name以及first_name，*不准使用order by**"></a><em>18.查找当前薪水(to_date=’9999-01-01’)排名第二多的员工编号emp_no、薪水salary、last_name以及first_name，*</em>不准使用order by**</h2><pre><code class="sql">-- 做法一，通过having：有一个人的工资比这个人多
+select e.emp_no,s.salary,e.last_name,e.first_name
 from (
-  select Num, 
-    case 
-      when @prev = Num then @count := @count + 1
-      when (@prev := Num) is not null then @count := 1
-    end as CNT
-  from Logs, (select @prev := null,@count := null) as t
-) as temp
-where temp.CNT &gt;= 3
-#方法2：
-select distinct a1.Num as ConsecutiveNums 
-from Logs a1,Logs a2,Logs a3
-where a1.Num=a2.Num and a2.Num=a3.Num 
-and a1.id-1=a2.id and a2.id -1 = a3.id  </code></pre>
-<h2 id="181-超过经理收入的员工"><a href="#181-超过经理收入的员工" class="headerlink" title="181.超过经理收入的员工"></a>181.超过经理收入的员工</h2><pre><code class="sql">-- 给定 Employee 表，编写一个 SQL 查询，该查询可以获取收入超过他们经理的员工的姓名。在上面的表格#中，Joe 是唯一一个收入超过他的经理的员工。
-# Write your MySQL query statement below
-select Name as Employee 
-from Employee e1
-where e1.Salary &gt; (
-    select e2.Salary from Employee e2 where e2.Id=e1.ManagerId
+    select * from 
+    salaries s1 inner join salaries s2 on s1.to_date='9999-01-01' and s2.to_date='9999-01-01'
+    where s1.salary&lt;s2.salary 
+    group by s1.emp_no having count(*)=1
+) s  join employees e on e.emp_no = s.emp_no
+
+-- 做法二，找到工资不为最高工资的工资最多的人，即为工资第二多
+select e.emp_no,max(s.salary),e.last_name,e.first_name
+from salaries s inner join employees e 
+on e.emp_no = s.emp_no 
+where s.to_date='9999-01-01' 
+and s.salary not in(
+    select max(salary) from salaries where to_date='9999-01-01' 
 )</code></pre>
-<h2 id="182"><a href="#182" class="headerlink" title="182."></a>182.</h2><pre><code class="sql">-- 编写一个 SQL 查询，查找 Person 表中所有重复的电子邮箱。
--- 解法1
-select email from person group by email having count(email)&gt;1
-
---解法2
-select email from (select count(1) as t,email from person group by email)r  where r.t&gt;1;
-
---解法3
-select distinct(p1.Email) 
-from Person p1 join Person p2  
-on p1.Email=p2.Email AND p1.id != p2.id </code></pre>
-<h2 id="183-从不订购的客户"><a href="#183-从不订购的客户" class="headerlink" title="183.从不订购的客户"></a>183.从不订购的客户</h2><pre><code class="sql">-- 某网站包含两个表，Customers 表和 Orders 表。编写一个 SQL 查询，找出所有从不订购任何东西的客户。
-# Write your MySQL query statement below
-select c.Name as Customers 
-from Customers c left join Orders o on
-c.Id=o.CustomerId where o.Id is null</code></pre>
-<h2 id="184-部门工资最高的员工"><a href="#184-部门工资最高的员工" class="headerlink" title="184.部门工资最高的员工"></a>184.部门工资最高的员工</h2><pre><code class="sql">-- Employee 表包含所有员工信息，每个员工有其对应的 Id, Name,salary 和 department Id。
--- Department 表包含公司所有部门的信息。
--- 编写一个 SQL 查询，找出每个部门工资最高的员工。
-select d.Name as Department , e.Name as Employee ,e.Salary
-from Employee e join Department d 
-on d.id=e.DepartmentId and e.Salary&gt;=
+<h2 id="19-查找所有员工的last-name和first-name以及对应的dept-name，也包括暂时没有分配部门的员工"><a href="#19-查找所有员工的last-name和first-name以及对应的dept-name，也包括暂时没有分配部门的员工" class="headerlink" title="19.查找所有员工的last_name和first_name以及对应的dept_name，也包括暂时没有分配部门的员工"></a>19.查找所有员工的last_name和first_name以及对应的dept_name，也包括暂时没有分配部门的员工</h2><pre><code class="sql">select e.last_name,e.first_name,d.dept_name
+from employees e left join 
 (
-    select max(Salary) from Employee e2 where e2.DepartmentId=d.Id 
-) 
-</code></pre>
-<h2 id="185-部门工资前三高的所有员工（困难）"><a href="#185-部门工资前三高的所有员工（困难）" class="headerlink" title="185.部门工资前三高的所有员工（困难）"></a>185.部门工资前三高的所有员工（困难）</h2><pre><code class="sql">-- Employee 表包含所有员工信息，每个员工有其对应的 Id, Name,salary 和 department Id。
--- Department 表包含公司所有部门的信息。
--- 编写一个 SQL 查询，找出每个部门获得前三高工资的所有员工。
-# Write your MySQL query statement below
-select d.Name as Department,e.Name as Employee,e.Salary
-FROM Employee AS e join Department d
-on 3 &gt; 
-        (SELECT  count(DISTINCT e2.Salary) 
-         FROM    Employee AS e2 
-          WHERE    e.Salary &lt; e2.Salary     AND e.DepartmentId = e2.DepartmentId) 
-and e.DepartmentId = d.Id
-order by d.Id asc,e.Salary desc
-</code></pre>
-<h2 id="196-删除重复的电子邮箱"><a href="#196-删除重复的电子邮箱" class="headerlink" title="196.删除重复的电子邮箱"></a>196.删除重复的电子邮箱</h2><pre><code class="sql">-- 编写一个 SQL 查询，来删除 Person 表中所有重复的电子邮箱，重复的邮箱里只保留 Id 最小 的那个
--- 方法一：group by
-DELETE from Person
-where Id not in (
-    select Id from (
-        select min(Id) as Id from Person p1
-        group by Email
-    ) t
-)
--- 方法二
-DELETE P1 
-FROM Person P1, Person P2
-WHERE P1.Email = P2.Email   -- 利用where进行自连接
-AND P1.Id &gt; P2.Id   -- 选择Id较大的行
-</code></pre>
-<h2 id="197-上升的温度（DATEDIFF）"><a href="#197-上升的温度（DATEDIFF）" class="headerlink" title="197.上升的温度（DATEDIFF）"></a>197.上升的温度（DATEDIFF）</h2><p>DATEDIFF() 函数返回两个日期之间的时间。</p>
-<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子 1"></a>例子 1</h3><p>使用如下 SELECT 语句：</p>
-<pre><code>SELECT DATEDIFF(day,'2008-12-29','2008-12-30') AS DiffDate</code></pre><p>结果：</p>
-<table>
-<thead>
-<tr>
-<th align="left">DiffDate</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">1</td>
-</tr>
-</tbody></table>
-<h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子 2"></a>例子 2</h3><p>使用如下 SELECT 语句：</p>
-<pre><code>SELECT DATEDIFF(day,'2008-12-30','2008-12-29') AS DiffDate</code></pre><p>结果：</p>
-<table>
-<thead>
-<tr>
-<th align="left">DiffDate</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">-1</td>
-</tr>
-</tbody></table>
-<pre><code class="sql">-- 给定一个 Weather 表，编写一个 SQL 查询，来查找与之前（昨天的）日期相比温度更高的所有日期的 Id。
-select w1.Id from Weather w1,Weather w2
-where DATEDIFF(w1.RecordDate,w2.RecordDate)=1 and w1.Temperature &gt; w2.Temperature</code></pre>
-<h2 id="595-大的国家"><a href="#595-大的国家" class="headerlink" title="595.大的国家"></a>595.大的国家</h2><pre><code class="sql">-- 如果一个国家的面积超过300万平方公里，或者人口超过2500万，那么这个国家就是大国家。
--- 编写一个SQL查询，输出表中所有大国家的名称、人口和面积。
-select name,population,area from World
-where population &gt;25000000 or area &gt;3000000</code></pre>
-<h2 id="596-超过5名学生的课"><a href="#596-超过5名学生的课" class="headerlink" title="596.超过5名学生的课"></a>596.超过5名学生的课</h2><pre><code class="sql">-- 有一个courses 表 ，有: student (学生) 和 class (课程)。
--- 请列出所有超过或等于5名学生的课。
-select class from courses 
-group by class having count(distinct student)&gt;=5</code></pre>
-<h2 id="262-行程和用户-困难"><a href="#262-行程和用户-困难" class="headerlink" title="262.行程和用户(困难)"></a>262.行程和用户(困难)</h2><pre><code class="sql">select t.Request_at as 'Day',
-round(count(if(Status != 'completed',Status,null))/count(Status),2)as 'Cancellation Rate'
-from Users u inner join Trips t on u.Banned !='Yes' and u.Users_Id=t.Client_Id 
-where t.Request_at &gt;= '2013-10-01' and t.Request_at &lt;= '2013-10-03'
-group by
-    t.Request_at
-</code></pre>
-<h2 id="626-换座位-中等-case…-when-then-else…-end"><a href="#626-换座位-中等-case…-when-then-else…-end" class="headerlink" title="626.换座位(中等) case…(when..then..else…)end"></a>626.换座位(中等) case…(when..then..else…)end</h2><pre><code class="sql">-- 小美是一所中学的信息科技老师，她有一张 seat 座位表，平时用来储存学生名字和与他们相对应的座位 id。其中纵列的 id 是连续递增的,小美想改变相邻俩学生的座位。你能不能帮她写一个 SQL query 来输出小美想要的结果呢？
-select
-(case
-when mod(id,2)=1 and (select count(*) from seat) = id then id
-when mod(id,2)=1 then id+1
-else id-1
-end) as id, student
-from seat order by id</code></pre>
-<h2 id="620-有趣的电影-非-lt-gt"><a href="#620-有趣的电影-非-lt-gt" class="headerlink" title="620.有趣的电影(非<>)"></a>620.有趣的电影(非&lt;&gt;)</h2><pre><code class="sql">-- 某城市开了一家新的电影院，吸引了很多人过来看电影。该电影院特别注意用户体验，专门有个 LED显示板做电影推荐，上面公布着影评和相关电影描述。
-
--- 作为该电影院的信息部主管，您需要编写一个 SQL查询，找出所有影片描述为非 boring (不无聊) 的并且 id 为奇数 的影片，结果请按等级 rating 排列。
-select id,movie,description,rating 
-from cinema
-where mod(id,2)=1 and description &lt;&gt; "boring"
-order by rating desc</code></pre>
-<h2 id="627-交换工资"><a href="#627-交换工资" class="headerlink" title="627.交换工资"></a>627.交换工资</h2><pre><code class="sql">--给定一个 salary 表，如下所示，有 m = 男性 和 f = 女性 的值。交换所有的 f 和 m 值（例如，将所有 f 值更改为 m，反之亦然）。要求只使用一个更新（Update）语句，并且没有中间的临时表。注意，您必只能写一个 Update 语句，请不要编写任何 Select 语句。
-update salary set 
-sex = case sex
-when 'm' then 'f'
-else 'm'
-end</code></pre>
-<h2 id="179-重新格式化部门表-group-by后返回第一条记录"><a href="#179-重新格式化部门表-group-by后返回第一条记录" class="headerlink" title="179.重新格式化部门表(group by后返回第一条记录)"></a>179.重新格式化部门表(group by后返回第一条记录)</h2><pre><code>select id as "id",
-max(case when month='Jan' then revenue else null end) as "Jan_Revenue",
-max(case when month='Feb' then revenue else null end) as "Feb_Revenue",
-max(case when month='Mar' then revenue else null end) as "Mar_Revenue",
-max(case when month='Apr' then revenue else null end) as "Apr_Revenue",
-max(case when month='May' then revenue else null end) as "May_Revenue",
-max(case when month='Jun' then revenue else null end) as "Jun_Revenue",
-max(case when month='Jul' then revenue else null end) as "Jul_Revenue",
-max(case when month='Aug' then revenue else null end) as "Aug_Revenue",
-max(case when month='Sep' then revenue else null end) as "Sep_Revenue",
-max(case when month='Oct' then revenue else null end) as "Oct_Revenue",
-max(case when month='Nov' then revenue else null end) as "Nov_Revenue",
-max(case when month='Dec' then revenue else null end) as "Dec_Revenue"
-from Department 
-group by id</code></pre><h2 id="601-体育馆人流量（困难）"><a href="#601-体育馆人流量（困难）" class="headerlink" title="601.体育馆人流量（困难）"></a>601.体育馆人流量（困难）</h2><pre><code class="sql">select distinct a.* from stadium a,stadium b,stadium c
-where a.people&gt;=100 and b.people&gt;=100 and c.people&gt;=100
-and(
-     (a.id = b.id-1 and b.id = c.id -1) or
-     (a.id = b.id-1 and a.id = c.id +1) or
-     (a.id = b.id+1 and b.id = c.id +1)
-)
-order by a.id</code></pre>
-<script>
+    select de.emp_no,dn.dept_no,dn.dept_name 
+    from departments dn inner join  dept_emp de
+    on de.dept_no=dn.dept_no
+) as d
+on e.emp_no = d.emp_no</code></pre>
+<h2 id="20-查找员工编号emp-no为10001其自入职以来的薪水salary涨幅值growth"><a href="#20-查找员工编号emp-no为10001其自入职以来的薪水salary涨幅值growth" class="headerlink" title="20.查找员工编号emp_no为10001其自入职以来的薪水salary涨幅值growth"></a>20.查找员工编号emp_no为10001其自入职以来的薪水salary涨幅值growth</h2><pre><code class="sql">-- 查找员工编号emp_no为10001其自入职以来的薪水salary涨幅值growth
+select (
+    (select salary from salaries 
+    where emp_no = 10001 order by from_date desc limit 0,1 ) 
+    -
+    (select salary from salaries 
+    where emp_no = 10001 order by from_date limit 0,1 ) 
+) as growth</code></pre>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -620,7 +523,7 @@ order by a.id</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="czydijkstra.github.io/2020/01/01/leetcode-mian-fei-sql-ti/">czydijkstra.github.io/2020/01/01/leetcode-mian-fei-sql-ti/</a>
+                    <a href="czydijkstra.github.io/2020/01/05/niu-ke-shu-ju-ku-sql-shi-zhan-1/">czydijkstra.github.io/2020/01/05/niu-ke-shu-ju-ku-sql-shi-zhan-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -834,7 +737,7 @@ order by a.id</code></pre>
         repo: 'CzyDijkstra.github.io',
         owner: 'CzyDijkstra',
         admin: "CzyDijkstra",
-        id: '2020-01-01T12-48-13',
+        id: '2020-01-05T14-14-16',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -859,19 +762,19 @@ order by a.id</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/05/niu-ke-shu-ju-ku-sql-shi-zhan-1/">
+                <a href="/2020/01/05/redis-de-shu-ju-lei-xing-ji-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="牛客数据库SQL实战(一)">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="redis的数据类型及常用命令">
                         
-                        <span class="card-title">牛客数据库SQL实战(一)</span>
+                        <span class="card-title">redis的数据类型及常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            牛客数据库SQL实战的题目，比较基础，但是循序渐进
+                            自己在学习redis中的一些整理
                         
                     </div>
                     <div class="publish-info">
@@ -882,8 +785,61 @@ order by a.id</code></pre>
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%B9%A0%E9%A2%98/" class="post-category">
-                                    习题
+                            <a href="/categories/redis/" class="post-category">
+                                    redis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
+                    </a>
+                    
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/01/01/leetcode-mian-fei-sql-ti/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="leetcode-cn数据库免费题目整理">
+                        
+                        <span class="card-title">leetcode-cn数据库免费题目整理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            leetcode-cn的免费sql题目
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/sql/" class="post-category">
+                                    sql
                                 </a>
                             
                             
@@ -899,71 +855,6 @@ order by a.id</code></pre>
                     
                     <a href="/tags/%E5%9F%BA%E7%A1%80/">
                         <span class="chip bg-color">基础</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/12/29/ji-chu-pai-xu-suan-fa-zheng-li-java/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="基础排序算法整理(java)">
-                        
-                        <span class="card-title">基础排序算法整理(java)</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            今晚手打的一些代码，回忆了一下一些基本的代码。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/JAVA/" class="post-category">
-                                    JAVA
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">基础</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
-                    </a>
-                    
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B5%84%E6%96%99/">
-                        <span class="chip bg-color">资料</span>
                     </a>
                     
                 </div>

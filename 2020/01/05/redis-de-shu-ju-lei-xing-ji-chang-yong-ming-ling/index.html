@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="leetcode-cn数据库免费题目整理, the Fish">
-    <meta name="description" content="leetcode-cn 免费sql题 题解每天刷5题，刷了一段时间，把免费的做完了，emm…转战牛客了
-175.左连接查询select Person.FirstName,Person.LastName,Address.City,Addres">
+    <meta name="keywords" content="redis的数据类型及常用命令, the Fish">
+    <meta name="description" content="redis的数据类型及常用命令自己在学习中的一些整理，非直接引用：redis常用的五大数据类型：String、List、Set、Hash、Zset
+key的常用命令keys * 查看当前所有keyflushall/flushdb 删除所有数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>leetcode-cn数据库免费题目整理 | the Fish</title>
+    <title>redis的数据类型及常用命令 | the Fish</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,13 +304,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        leetcode-cn数据库免费题目整理
+                        redis的数据类型及常用命令
                     </div>
                 </div>
             </div>
@@ -333,12 +333,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/sql/">
-                                <span class="chip bg-color">sql</span>
+                            <a href="/tags/redis/">
+                                <span class="chip bg-color">redis</span>
                             </a>
                         
-                            <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">基础</span>
+                            <a href="/tags/ubuntu/">
+                                <span class="chip bg-color">ubuntu</span>
                             </a>
                         
                     </div>
@@ -349,8 +349,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/sql/" class="post-category">
-                                sql
+                            <a href="/categories/redis/" class="post-category">
+                                redis
                             </a>
                         
                     </div>
@@ -362,7 +362,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-01
+                    2020-01-05
                 </div>
                 
 
@@ -384,199 +384,108 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="leetcode-cn-免费sql题-题解"><a href="#leetcode-cn-免费sql题-题解" class="headerlink" title="leetcode-cn 免费sql题 题解"></a>leetcode-cn 免费sql题 题解</h1><p>每天刷5题，刷了一段时间，把免费的做完了，emm…转战牛客了</p>
-<h2 id="175-左连接查询"><a href="#175-左连接查询" class="headerlink" title="175.左连接查询"></a>175.左连接查询</h2><pre><code>select Person.FirstName,Person.LastName,Address.City,Address.State 
-from Person 
-left join Address on 
-Person.PersonId=Address.PersonId</code></pre><h2 id="176-判断非空和第二大的一个值"><a href="#176-判断非空和第二大的一个值" class="headerlink" title="176.判断非空和第二大的一个值"></a>176.判断非空和第二大的一个值</h2><pre><code class="sql">select(
-
-select distinct Salary  
-
-from Employee 
-
-order by Salary desc
-
-limit 1,1
-
-)as SecondHighestSalary </code></pre>
-<h2 id="177-第n高的薪水"><a href="#177-第n高的薪水" class="headerlink" title="177.第n高的薪水"></a>177.第n高的薪水</h2><pre><code class="sql">CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
-BEGIN
-    SET N = N - 1;
-    RETURN (
-     SELECT DISTINCT salary FROM employee ORDER BY salary DESC LIMIT N, 1
-    );
-END</code></pre>
-<h2 id="178-分数排名"><a href="#178-分数排名" class="headerlink" title="178.分数排名"></a>178.分数排名</h2><pre><code class="sql">select Score,
-(
-    select count(distinct Score)
-    from Scores where s.Score&lt;=Score
-)as Rank
-from Scores s order by Score desc
-</code></pre>
-<h2 id="180-连续出现的数字"><a href="#180-连续出现的数字" class="headerlink" title="180.连续出现的数字"></a>180.连续出现的数字</h2><pre><code class="sql">-- 编写一个 SQL 查询，查找所有至少连续出现三次的数字。
-#方法一:
-select distinct Num as ConsecutiveNums
-from (
-  select Num, 
-    case 
-      when @prev = Num then @count := @count + 1
-      when (@prev := Num) is not null then @count := 1
-    end as CNT
-  from Logs, (select @prev := null,@count := null) as t
-) as temp
-where temp.CNT &gt;= 3
-#方法2：
-select distinct a1.Num as ConsecutiveNums 
-from Logs a1,Logs a2,Logs a3
-where a1.Num=a2.Num and a2.Num=a3.Num 
-and a1.id-1=a2.id and a2.id -1 = a3.id  </code></pre>
-<h2 id="181-超过经理收入的员工"><a href="#181-超过经理收入的员工" class="headerlink" title="181.超过经理收入的员工"></a>181.超过经理收入的员工</h2><pre><code class="sql">-- 给定 Employee 表，编写一个 SQL 查询，该查询可以获取收入超过他们经理的员工的姓名。在上面的表格#中，Joe 是唯一一个收入超过他的经理的员工。
-# Write your MySQL query statement below
-select Name as Employee 
-from Employee e1
-where e1.Salary &gt; (
-    select e2.Salary from Employee e2 where e2.Id=e1.ManagerId
-)</code></pre>
-<h2 id="182"><a href="#182" class="headerlink" title="182."></a>182.</h2><pre><code class="sql">-- 编写一个 SQL 查询，查找 Person 表中所有重复的电子邮箱。
--- 解法1
-select email from person group by email having count(email)&gt;1
-
---解法2
-select email from (select count(1) as t,email from person group by email)r  where r.t&gt;1;
-
---解法3
-select distinct(p1.Email) 
-from Person p1 join Person p2  
-on p1.Email=p2.Email AND p1.id != p2.id </code></pre>
-<h2 id="183-从不订购的客户"><a href="#183-从不订购的客户" class="headerlink" title="183.从不订购的客户"></a>183.从不订购的客户</h2><pre><code class="sql">-- 某网站包含两个表，Customers 表和 Orders 表。编写一个 SQL 查询，找出所有从不订购任何东西的客户。
-# Write your MySQL query statement below
-select c.Name as Customers 
-from Customers c left join Orders o on
-c.Id=o.CustomerId where o.Id is null</code></pre>
-<h2 id="184-部门工资最高的员工"><a href="#184-部门工资最高的员工" class="headerlink" title="184.部门工资最高的员工"></a>184.部门工资最高的员工</h2><pre><code class="sql">-- Employee 表包含所有员工信息，每个员工有其对应的 Id, Name,salary 和 department Id。
--- Department 表包含公司所有部门的信息。
--- 编写一个 SQL 查询，找出每个部门工资最高的员工。
-select d.Name as Department , e.Name as Employee ,e.Salary
-from Employee e join Department d 
-on d.id=e.DepartmentId and e.Salary&gt;=
-(
-    select max(Salary) from Employee e2 where e2.DepartmentId=d.Id 
-) 
-</code></pre>
-<h2 id="185-部门工资前三高的所有员工（困难）"><a href="#185-部门工资前三高的所有员工（困难）" class="headerlink" title="185.部门工资前三高的所有员工（困难）"></a>185.部门工资前三高的所有员工（困难）</h2><pre><code class="sql">-- Employee 表包含所有员工信息，每个员工有其对应的 Id, Name,salary 和 department Id。
--- Department 表包含公司所有部门的信息。
--- 编写一个 SQL 查询，找出每个部门获得前三高工资的所有员工。
-# Write your MySQL query statement below
-select d.Name as Department,e.Name as Employee,e.Salary
-FROM Employee AS e join Department d
-on 3 &gt; 
-        (SELECT  count(DISTINCT e2.Salary) 
-         FROM    Employee AS e2 
-          WHERE    e.Salary &lt; e2.Salary     AND e.DepartmentId = e2.DepartmentId) 
-and e.DepartmentId = d.Id
-order by d.Id asc,e.Salary desc
-</code></pre>
-<h2 id="196-删除重复的电子邮箱"><a href="#196-删除重复的电子邮箱" class="headerlink" title="196.删除重复的电子邮箱"></a>196.删除重复的电子邮箱</h2><pre><code class="sql">-- 编写一个 SQL 查询，来删除 Person 表中所有重复的电子邮箱，重复的邮箱里只保留 Id 最小 的那个
--- 方法一：group by
-DELETE from Person
-where Id not in (
-    select Id from (
-        select min(Id) as Id from Person p1
-        group by Email
-    ) t
-)
--- 方法二
-DELETE P1 
-FROM Person P1, Person P2
-WHERE P1.Email = P2.Email   -- 利用where进行自连接
-AND P1.Id &gt; P2.Id   -- 选择Id较大的行
-</code></pre>
-<h2 id="197-上升的温度（DATEDIFF）"><a href="#197-上升的温度（DATEDIFF）" class="headerlink" title="197.上升的温度（DATEDIFF）"></a>197.上升的温度（DATEDIFF）</h2><p>DATEDIFF() 函数返回两个日期之间的时间。</p>
-<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子 1"></a>例子 1</h3><p>使用如下 SELECT 语句：</p>
-<pre><code>SELECT DATEDIFF(day,'2008-12-29','2008-12-30') AS DiffDate</code></pre><p>结果：</p>
-<table>
-<thead>
-<tr>
-<th align="left">DiffDate</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">1</td>
-</tr>
-</tbody></table>
-<h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子 2"></a>例子 2</h3><p>使用如下 SELECT 语句：</p>
-<pre><code>SELECT DATEDIFF(day,'2008-12-30','2008-12-29') AS DiffDate</code></pre><p>结果：</p>
-<table>
-<thead>
-<tr>
-<th align="left">DiffDate</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">-1</td>
-</tr>
-</tbody></table>
-<pre><code class="sql">-- 给定一个 Weather 表，编写一个 SQL 查询，来查找与之前（昨天的）日期相比温度更高的所有日期的 Id。
-select w1.Id from Weather w1,Weather w2
-where DATEDIFF(w1.RecordDate,w2.RecordDate)=1 and w1.Temperature &gt; w2.Temperature</code></pre>
-<h2 id="595-大的国家"><a href="#595-大的国家" class="headerlink" title="595.大的国家"></a>595.大的国家</h2><pre><code class="sql">-- 如果一个国家的面积超过300万平方公里，或者人口超过2500万，那么这个国家就是大国家。
--- 编写一个SQL查询，输出表中所有大国家的名称、人口和面积。
-select name,population,area from World
-where population &gt;25000000 or area &gt;3000000</code></pre>
-<h2 id="596-超过5名学生的课"><a href="#596-超过5名学生的课" class="headerlink" title="596.超过5名学生的课"></a>596.超过5名学生的课</h2><pre><code class="sql">-- 有一个courses 表 ，有: student (学生) 和 class (课程)。
--- 请列出所有超过或等于5名学生的课。
-select class from courses 
-group by class having count(distinct student)&gt;=5</code></pre>
-<h2 id="262-行程和用户-困难"><a href="#262-行程和用户-困难" class="headerlink" title="262.行程和用户(困难)"></a>262.行程和用户(困难)</h2><pre><code class="sql">select t.Request_at as 'Day',
-round(count(if(Status != 'completed',Status,null))/count(Status),2)as 'Cancellation Rate'
-from Users u inner join Trips t on u.Banned !='Yes' and u.Users_Id=t.Client_Id 
-where t.Request_at &gt;= '2013-10-01' and t.Request_at &lt;= '2013-10-03'
-group by
-    t.Request_at
-</code></pre>
-<h2 id="626-换座位-中等-case…-when-then-else…-end"><a href="#626-换座位-中等-case…-when-then-else…-end" class="headerlink" title="626.换座位(中等) case…(when..then..else…)end"></a>626.换座位(中等) case…(when..then..else…)end</h2><pre><code class="sql">-- 小美是一所中学的信息科技老师，她有一张 seat 座位表，平时用来储存学生名字和与他们相对应的座位 id。其中纵列的 id 是连续递增的,小美想改变相邻俩学生的座位。你能不能帮她写一个 SQL query 来输出小美想要的结果呢？
-select
-(case
-when mod(id,2)=1 and (select count(*) from seat) = id then id
-when mod(id,2)=1 then id+1
-else id-1
-end) as id, student
-from seat order by id</code></pre>
-<h2 id="620-有趣的电影-非-lt-gt"><a href="#620-有趣的电影-非-lt-gt" class="headerlink" title="620.有趣的电影(非<>)"></a>620.有趣的电影(非&lt;&gt;)</h2><pre><code class="sql">-- 某城市开了一家新的电影院，吸引了很多人过来看电影。该电影院特别注意用户体验，专门有个 LED显示板做电影推荐，上面公布着影评和相关电影描述。
-
--- 作为该电影院的信息部主管，您需要编写一个 SQL查询，找出所有影片描述为非 boring (不无聊) 的并且 id 为奇数 的影片，结果请按等级 rating 排列。
-select id,movie,description,rating 
-from cinema
-where mod(id,2)=1 and description &lt;&gt; "boring"
-order by rating desc</code></pre>
-<h2 id="627-交换工资"><a href="#627-交换工资" class="headerlink" title="627.交换工资"></a>627.交换工资</h2><pre><code class="sql">--给定一个 salary 表，如下所示，有 m = 男性 和 f = 女性 的值。交换所有的 f 和 m 值（例如，将所有 f 值更改为 m，反之亦然）。要求只使用一个更新（Update）语句，并且没有中间的临时表。注意，您必只能写一个 Update 语句，请不要编写任何 Select 语句。
-update salary set 
-sex = case sex
-when 'm' then 'f'
-else 'm'
-end</code></pre>
-<h2 id="179-重新格式化部门表-group-by后返回第一条记录"><a href="#179-重新格式化部门表-group-by后返回第一条记录" class="headerlink" title="179.重新格式化部门表(group by后返回第一条记录)"></a>179.重新格式化部门表(group by后返回第一条记录)</h2><pre><code>select id as "id",
-max(case when month='Jan' then revenue else null end) as "Jan_Revenue",
-max(case when month='Feb' then revenue else null end) as "Feb_Revenue",
-max(case when month='Mar' then revenue else null end) as "Mar_Revenue",
-max(case when month='Apr' then revenue else null end) as "Apr_Revenue",
-max(case when month='May' then revenue else null end) as "May_Revenue",
-max(case when month='Jun' then revenue else null end) as "Jun_Revenue",
-max(case when month='Jul' then revenue else null end) as "Jul_Revenue",
-max(case when month='Aug' then revenue else null end) as "Aug_Revenue",
-max(case when month='Sep' then revenue else null end) as "Sep_Revenue",
-max(case when month='Oct' then revenue else null end) as "Oct_Revenue",
-max(case when month='Nov' then revenue else null end) as "Nov_Revenue",
-max(case when month='Dec' then revenue else null end) as "Dec_Revenue"
-from Department 
-group by id</code></pre><h2 id="601-体育馆人流量（困难）"><a href="#601-体育馆人流量（困难）" class="headerlink" title="601.体育馆人流量（困难）"></a>601.体育馆人流量（困难）</h2><pre><code class="sql">select distinct a.* from stadium a,stadium b,stadium c
-where a.people&gt;=100 and b.people&gt;=100 and c.people&gt;=100
-and(
-     (a.id = b.id-1 and b.id = c.id -1) or
-     (a.id = b.id-1 and a.id = c.id +1) or
-     (a.id = b.id+1 and b.id = c.id +1)
-)
-order by a.id</code></pre>
+                <h1 id="redis的数据类型及常用命令"><a href="#redis的数据类型及常用命令" class="headerlink" title="redis的数据类型及常用命令"></a>redis的数据类型及常用命令</h1><p>自己在学习中的一些整理，非直接引用：<br>redis常用的五大数据类型：String、List、Set、Hash、Zset</p>
+<h2 id="key的常用命令"><a href="#key的常用命令" class="headerlink" title="key的常用命令"></a>key的常用命令</h2><p>keys * 查看当前所有key<br>flushall/flushdb 删除所有数据/删除当前数据库数据<br>select num 切换到数据库num，从0开始到15<br>move key db 把某个key移除<br>exists key 判断某个key是否存在<br>expire key NUM 为给定的key设置过期时间NUM秒<br>ttl key 看看还要多久过期 -1：永不过期  -2：已经过期，<strong>直接移除内存系统</strong><br>type key 查看你的key什么类型<br>get/set key (value)得到/设置key，set时如果已经有了，<strong>会覆盖key</strong><br>dump key序列化key</p>
+<ul>
+<li>常见数据类型操作命令 redisdoc.com</li>
+<li>redis的回应，起效1，不起效0</li>
+</ul>
+<h2 id="String-—最基本的类型"><a href="#String-—最基本的类型" class="headerlink" title="String  —最基本的类型"></a>String  —最基本的类型</h2><h3 id="特性和属性"><a href="#特性和属性" class="headerlink" title="特性和属性"></a>特性和属性</h3><ul>
+<li>一个key对应一个value</li>
+<li>二进制安全，可以包含任何数据，比如序列化对线或者jpg图片</li>
+<li>value最多512M(理论数据)</li>
+<li>单值单value</li>
+</ul>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>set/get/del/append/strlen 和java类似</li>
+<li>Incr/decr/lncrby/decrby 自增/减 加减数字 <strong>一定是要数字才能使用</strong></li>
+<li>mset/mget/msetnx 多数据set/get,msetnx<strong>若有数据不存在，全部失效</strong></li>
+<li>getrange/setrange </li>
+<li>setex(set with expire)/setnx(set if not exist)</li>
+</ul>
+<h2 id="Hash哈希-类似java里的Map-lt-String-Object-gt"><a href="#Hash哈希-类似java里的Map-lt-String-Object-gt" class="headerlink" title="Hash哈希 类似java里的Map<String,Object>"></a><strong>Hash哈希</strong> 类似java里的Map&lt;String,Object&gt;</h2><h3 id="特性和属性-1"><a href="#特性和属性-1" class="headerlink" title="特性和属性"></a>特性和属性</h3><ul>
+<li>键值对结合，KV模式不变，但是<strong>V是一个键值对</strong></li>
+<li>一个String类型的映射表</li>
+</ul>
+<h3 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>hset/hget 单个，注意特性一</li>
+<li>hmset/hmget 批量</li>
+<li>hgetall key 获得key中全部值</li>
+<li>hdel key key1 把key中对应的key1删除</li>
+<li>hlen</li>
+<li>hexits myhash v1 查询hash中v1的key是否存在</li>
+<li>hkeys/hvals myhash 把myhash中全部的key/value显示出来</li>
+<li>hincrby/hincrbyfloat key key1 num 使key中key1的值+num，整数/小数</li>
+<li>hsetnx key key1 value1 判断是否存在，若存在则添加 </li>
+</ul>
+<h2 id="List列表-底层实际是个链表"><a href="#List列表-底层实际是个链表" class="headerlink" title="List列表 底层实际是个链表"></a>List列表 底层实际是个链表</h2><h3 id="特性和属性-2"><a href="#特性和属性-2" class="headerlink" title="特性和属性"></a>特性和属性</h3><ul>
+<li>按照插入顺序排序，可以插入一个元素到列表的头部或者尾部</li>
+<li>单值多value</li>
+<li>字符串链表，left、right都可以插入或者添加</li>
+<li>如果键不存在，创建新的链表，如果已经存在，新增内容</li>
+<li>如果值全部移除，对应的键也就消失了</li>
+<li>对头和尾操作效率很高，操作中间元素效率惨淡</li>
+</ul>
+<h3 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>lpush/rpush mylist 1 2 3 4 5 把1-5push到list（l=left，r=right）<br><em>rpush是怎么进怎么出，lpush反之</em></li>
+<li>lrange mylist a b 把list中a-b范围内的东西显示出来，0 -1 显示全部</li>
+<li>lpop/rpop mylist 移除一个对应栈顶的</li>
+<li>lindex mylist num 查看list中第num+1个元素，从上到下</li>
+<li>llen</li>
+<li>lrem mylist a b 在list中删除a个b</li>
+<li>ltrim mylist index_begin index_end截取指定范围的值后再赋值给key</li>
+<li>rpoplpush list01 list02 把list01的最后一个移至list02的头</li>
+</ul>
+<p>*<br>如：list01  1 2 3<br>    list02  4 5 6<br>    执行后—&gt; list01 1 2 ；list02 3 4 5 6<br>*</p>
+<ul>
+<li>lset list01 a b 把索引a处的元素值改为b</li>
+<li>linsert mylist before/after a b在值为a的元素前/后插入元素b</li>
+</ul>
+<h2 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h2><h3 id="特性和属性-3"><a href="#特性和属性-3" class="headerlink" title="特性和属性"></a>特性和属性</h3><ul>
+<li>底层是HashMap</li>
+<li><strong>无序，无重复</strong>，通过HashTable实现</li>
+<li>单值多value</li>
+</ul>
+<h3 id="常用命令-3"><a href="#常用命令-3" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>sadd set01 1 1 2 3 向set01中加入1，2，3并且会直接去重</li>
+<li>smembers set01 查看集合的全部成员</li>
+<li>sismember set01 a 判断set01中是否存在a</li>
+<li>scard set01 获取集合里元素个数</li>
+<li>srem key value 把key中的value删除</li>
+<li>srandmember key num 在key中随机出num个数字</li>
+<li>spop key 随机出栈</li>
+<li>smove key1 key2 num 把key1的num赋给key2</li>
+<li>数学集合类<ul>
+<li>差集 sdiff key1 key2(key1-key2)</li>
+<li>交集 sinter key1 key2</li>
+<li>并集 sunion key1 key2</li>
+</ul>
+</li>
+</ul>
+<h2 id="Zset-有序集合"><a href="#Zset-有序集合" class="headerlink" title="Zset 有序集合"></a>Zset 有序集合</h2><h3 id="特性和属性-4"><a href="#特性和属性-4" class="headerlink" title="特性和属性"></a>特性和属性</h3><ul>
+<li>跳跃排序</li>
+<li>通过分数为集合中的成员进行从小到大的排序。每个元素都会关联一个double类型的分数</li>
+<li>成员唯一，但是分数可以重复</li>
+</ul>
+<h3 id="常用命令-4"><a href="#常用命令-4" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>zadd zset01 60 v1 70 v2 80 v3 两个值一个整体</li>
+<li>zrange key a b (withscores)</li>
+<li>zrangebyscore key a b 显示分数a-b的key<ul>
+<li>withscores</li>
+<li>(a/(b 指不包含，如<em>zrangebyscore zset01 (20 30</em></li>
+<li>limit num1 num2 从num1开始截取num2个元素</li>
+</ul>
+</li>
+<li>zrem key v1 删除key中的某个vlaue</li>
+<li>zcard/zcount key 统计个数<ul>
+<li>后面+ a b 代表分数区间</li>
+</ul>
+</li>
+<li>zrank/zscore key score/values 获得下标值或者分数</li>
+<li>zrevrank key values <em>逆序</em>获得下标值</li>
+<li>zrevrange key a b 逆序获得a-b内的值</li>
+<li>zrevrangebyscore key a b </li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -620,7 +529,7 @@ order by a.id</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="czydijkstra.github.io/2020/01/01/leetcode-mian-fei-sql-ti/">czydijkstra.github.io/2020/01/01/leetcode-mian-fei-sql-ti/</a>
+                    <a href="czydijkstra.github.io/2020/01/05/redis-de-shu-ju-lei-xing-ji-chang-yong-ming-ling/">czydijkstra.github.io/2020/01/05/redis-de-shu-ju-lei-xing-ji-chang-yong-ming-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -658,12 +567,12 @@ order by a.id</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/sql/">
-                                    <span class="chip bg-color">sql</span>
+                                <a href="/tags/redis/">
+                                    <span class="chip bg-color">redis</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">基础</span>
+                                <a href="/tags/ubuntu/">
+                                    <span class="chip bg-color">ubuntu</span>
                                 </a>
                             
                         </div>
@@ -834,7 +743,7 @@ order by a.id</code></pre>
         repo: 'CzyDijkstra.github.io',
         owner: 'CzyDijkstra',
         admin: "CzyDijkstra",
-        id: '2020-01-01T12-48-13',
+        id: '2020-01-05T21-04-20',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -855,9 +764,64 @@ order by a.id</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/01/05/redis-de-shu-ju-lei-xing-ji-chang-yong-ming-ling/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="redis的数据类型及常用命令">
+                        
+                        <span class="card-title">redis的数据类型及常用命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            自己在学习redis中的一些整理
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/redis/" class="post-category">
+                                    redis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
+                    </a>
+                    
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/01/05/niu-ke-shu-ju-ku-sql-shi-zhan-1/">
                     <div class="card-image">
@@ -875,9 +839,9 @@ order by a.id</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -899,71 +863,6 @@ order by a.id</code></pre>
                     
                     <a href="/tags/%E5%9F%BA%E7%A1%80/">
                         <span class="chip bg-color">基础</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/12/29/ji-chu-pai-xu-suan-fa-zheng-li-java/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="基础排序算法整理(java)">
-                        
-                        <span class="card-title">基础排序算法整理(java)</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            今晚手打的一些代码，回忆了一下一些基本的代码。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/JAVA/" class="post-category">
-                                    JAVA
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">基础</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
-                    </a>
-                    
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B5%84%E6%96%99/">
-                        <span class="chip bg-color">资料</span>
                     </a>
                     
                 </div>
